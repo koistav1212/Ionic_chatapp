@@ -62,7 +62,7 @@ exports.grpMsg = async (request, response) => {
         if(group)
          prvMsg=group.message;
         prvMsg.push(request.body.msg);
-        prvMsg.sort((a, b) => b.timestamps - a.timestamps);
+       
 
         await Group.findByIdAndUpdate(request.body.grpid,{message:prvMsg})
         return response.status(200).json(prvMsg);}

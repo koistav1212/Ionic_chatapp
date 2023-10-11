@@ -10,7 +10,9 @@ exports.newMessage = async (request, response) => {
         let prvMsg=[]
         if(conversation)
          prvMsg=conversation.message;
-        prvMsg.push(request.body)
+        prvMsg.push(request.body);
+        console.log(prvMsg)
+       
         await Conversation.findByIdAndUpdate(request.body.conversationId,{message:prvMsg})
         return response.status(200).json(prvMsg);}
         else{

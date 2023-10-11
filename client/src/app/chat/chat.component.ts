@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  @Input() conversation:any;currConv={};
+  @Input() conversation:any={};currConv={};
   messageList=[]
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   @Output() backClicked: EventEmitter<string> = new EventEmitter();
@@ -81,12 +81,14 @@ currUser:any={}
   { if(this.conversation.grpName==null){
     this.service.getMessages(this.conversation._id).subscribe((data:any)=>{
       
-      this.messageList=data.message
+      let x=data.message.sort((a:any, b:any) => b.timestamps - a.timestamps);
+      this.messageList=x
     })}
     else{
       this.service.getGroupMessages(this.conversation._id).subscribe((data:any)=>{
         console.log("chat_get",data);
-      this.messageList=data.message
+        let x=data.message.sort((a:any, b:any) => b.timestamps - a.timestamps);
+      this.messageList=x
       })
     }
   }
