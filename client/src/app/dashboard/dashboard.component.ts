@@ -1,7 +1,8 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { services } from '../services/services';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { ChatComponent } from '../chat/chat.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
   conversation:any={};conversations=[];
   hideMatIcon=false;screenSize=false;
   @ViewChild('fabicon') fabIcon!: ElementRef;
-  constructor( public modalService: NgbModal,private services:services) { }
+  constructor( public modalService: NgbModal,private services:services,private chat:ChatComponent,private cdRef: ChangeDetectorRef) { }
 
   @ViewChild(SidebarComponent) sidebarComponent!: SidebarComponent;
   ngOnInit(): void {
@@ -25,11 +26,11 @@ export class DashboardComponent implements OnInit {
    
     this.hideMatIcon=true
     document.getElementById('chatContainer').classList.add('app-chat-visible');
-
+    this.chat.conversation = conversation;
+    this.cdRef.detectChanges();
   }
   onChatBackClicked(event: string) {
-    // Hide the chat component by setting conversation to null or whatever logic you have
-    this.conversation = {}; // You should replace this with your own logic
+    this.conversation = {}; 
     
     this.hideMatIcon=false;
     this.ngOnInit()

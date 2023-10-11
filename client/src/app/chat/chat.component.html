@@ -29,15 +29,15 @@
   <div id="body">
     <div
       class="message"
-      [ngClass]="{ me: message.senderId==currUser._id }"
-      *ngFor="let message of messageList"
+      [ngClass]="{ me: msg.senderId==currUser._id }"
+      *ngFor="let msg of messageList"
     >
-    <div *ngIf="message.senderId !== currUser._id && conversation.grpName">
-      <div class="userName">{{ message.senderName }}</div>
+    <div *ngIf="msg.senderId !== currUser._id && conversation.grpName">
+      <div class="userName">{{ msg.senderName }}</div>
     </div>
       <div class="messageContent">
-        {{ message.text }}
-        <div class="time">{{ formatTimestamp(message.timestamps) }}</div>
+        {{ msg.text }}
+        <div class="time">{{ formatTimestamp(msg.timestamps) }}</div>
       </div>
     </div>
   </div>

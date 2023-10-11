@@ -25,7 +25,8 @@ currUser:any={}
   async ngOnInit(): Promise<void> {
     
     console.log("ChatConv",this.conversation)
-    this.messageList=this.conversation.message
+    
+    this.messageList=this.conversation.message.sort((a:any, b:any) => b.timestamps - a.timestamps);
     this.getNewMessages();
     this.getAllUsers();
     (await this.service.getCurrUser()).subscribe((res:any)=>{
@@ -33,6 +34,8 @@ currUser:any={}
 
       
   }
+
+  
   submitMessage(event: any) {
     let value = event.target.value.trim();
     this.message = '';

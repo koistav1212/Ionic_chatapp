@@ -35,7 +35,8 @@ import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
 
 LOAD_WASM().subscribe((res: any) => console.log('LOAD_WASM', res));
 @NgModule({
-  declarations: [AppComponent,StartScreenComponent,LoginPageComponent,DashboardComponent,QrscannerComponent,UserListComponent, GroupInfoComponent, UserInfoComponent,ChatComponent,SidebarComponent],
+  declarations: [AppComponent,StartScreenComponent,LoginPageComponent,DashboardComponent,QrscannerComponent,UserListComponent, GroupInfoComponent, UserInfoComponent,
+    ChatComponent,SidebarComponent],
   imports: [ BrowserModule,
     CommonModule,
     AppRoutingModule,
@@ -48,7 +49,7 @@ LOAD_WASM().subscribe((res: any) => console.log('LOAD_WASM', res));
     AngularFireAuthModule,
     MatButtonModule,QRCodeModule,
     MatIconModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ChatComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
