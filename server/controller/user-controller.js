@@ -6,11 +6,13 @@ const path = require("path");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const imagesPath = "./uploads/userPics/" + req.params.id;
-
+    
+    // Create the user's directory if it doesn't exist
     if (!fs.existsSync(imagesPath)) {
       fs.mkdirSync(imagesPath, { recursive: true });
     }
-
+console.log(imagesPath)
+    // Call the callback to specify the destination directory
     cb(null, imagesPath);
   },
   filename: (req, file, cb) => {
@@ -34,11 +36,12 @@ exports.updateUser = async (req, res) => {
       const { _id, about } = req.body;
       const profilePic = req.file ? "/" + req.file.path : "";
 
+      // The user update logic can remain the same
       const user = await userSchema.findOneAndUpdate(
         { _id: _id },
         {
           $set: {
-            profilePic: "https://angular-chatapp.onrender.com/" + profilePic,
+            profilePic: "https://angular-chatapp.onrender.com/" + profilePic, // Remove the leading slash
             about: about,
           },
         },

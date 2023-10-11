@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
   next();
 });
 const corsOptions = {
-  origin: ['https://angular-chatapp.onrender.com','http://localhost:8100'],
+  origin: ['https://angular-chatapp.onrender.com','http://localhost:8100','http://localhost:5000/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add the HTTP methods you need
   credentials: true, // Set to true if you need to include cookies or HTTP credentials
 };
@@ -101,21 +101,7 @@ mongoose
 });
   
 
-function writeENV() {
-  if (process.env.NODE_ENV) {
-      let content = "(function (window) {" +
-          "window.__env = window.__env || {};" +
-          "window.__env.SERVER_URL = '" + process.env.SERVER_URL + "';" +
-          "}(this));"
-      fs.writeFile(path.join(__dirname.replace(/\\/g, "/"), '/view/dist/assets/environments/env.js'), content, (err) => {
-          if (err) throw err;
-          console.log('SERVER_URL :', process.env.SERVER_URL)
-          console.log('Successfully saved env.js file.');
-      });
-  }
-}
-
 app.use(sendSpaFileIfUnmatched);
 function sendSpaFileIfUnmatched(req, res) {
-  res.sendFile("/view/dist/index.html", { root: '.' });
+  res.sendFile("/view/www/index.html", { root: '.' });
 }
