@@ -41,7 +41,7 @@ exports.updateUser = async (req, res) => {
         { _id: _id },
         {
           $set: {
-            profilePic: "https://angular-chatapp.onrender.com/" + profilePic, // Remove the leading slash
+            profilePic: "https://angular-chatapp.onrender.com" + profilePic, // Remove the leading slash
             about: about,
           },
         },
