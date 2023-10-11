@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
   next();
 });
 const corsOptions = {
-  origin: ['https://angular-chatapp.onrender.com','http://localhost:8100','http://localhost:5000/'],
+  origin: ['https://angular-chatapp.onrender.com','http://localhost:8100','http://localhost:5000/','http://localhost:4200/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add the HTTP methods you need
   credentials: true, // Set to true if you need to include cookies or HTTP credentials
 };
