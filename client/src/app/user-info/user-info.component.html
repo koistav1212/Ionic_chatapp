@@ -1,0 +1,46 @@
+<div class="backdrop">
+  <div class="scrollable-container">
+    
+    <button   class=" circular-button "  (click)="closeModal();" >
+      <ion-icon style="font-size: 25px;" name="close-circle-outline"></ion-icon>
+    </button>
+  
+    <!-- New content -->
+    <div class="profile-container">
+      <div class="profile-card">
+        <div class="profile-picture">
+          <img src="{{user.profilePic|| 'https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png'}}"
+            alt="Profile Picture" />
+        </div>
+        <div class="profile-info">
+          <h2>User Name</h2>
+          <h2>{{ user.userName }}</h2>
+        </div>
+        <div class="profile-info">
+          <h2>About</h2>
+          <h2>{{ user.about }}</h2>
+        </div>
+        <div class="profile-info">
+          <h2>Joined At</h2>
+          <h2>{{formatTimestamp(user.timestamps)}}</h2>
+        </div>
+        
+        <div class="profile-info" style="display: flex;flex-direction: column;">
+          <h2>All Groups</h2>
+          <div class="scrollable-list">
+            <ul>
+              <li *ngFor="let mem of allgroups">
+                {{ mem.grpName }}
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #userlist let-quest>
+  <app-user-list  ></app-user-list>
+</ng-template>

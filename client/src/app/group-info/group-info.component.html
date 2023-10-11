@@ -1,0 +1,65 @@
+<div class="backdrop">
+  <div class="scrollable-container">
+    
+    
+    <button   class=" circular-button "  (click)="closeModal();" >
+      <ion-icon style="font-size: 25px;" name="close-circle-outline"></ion-icon>
+    </button>
+    <!-- New content -->
+    <div class="profile-container">
+      <div class="profile-card">
+        <div class="profile-picture">
+          <img src="{{conversation.grpPic||'https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png'}}"
+            alt="Profile Picture" />
+        </div>
+        <div class="profile-info">
+          <h2>Group Name</h2>
+          <h2>{{ conversation.grpName }}</h2>
+        </div>
+        <div class="profile-info">
+          <h2>Group Description</h2>
+          <h2>{{ conversation.grpDesc }}</h2>
+        </div>
+        <div class="profile-info">
+          <h2>Created At</h2>
+          <h2>{{formatTimestamp(conversation.timestamps)}}</h2>
+        </div>
+        <div style="display: flex; flex-direction: column;   width: 90%; margin: auto;">
+        
+        <ng-multiselect-dropdown
+        [placeholder]="'Select Users'"
+        [settings]="dropdownSettings"
+        [data]="allUsers"
+        [(ngModel)]="selectedItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+      >
+      </ng-multiselect-dropdown>
+      <div class="error-message" *ngIf="!selectedItemsValid">Please select at least one user.</div>
+      <button
+        class="capsule-button"
+        [class.disabled]="!grpNameValid || !selectedItemsValid"
+        (click)="addMember()"
+      >
+        Add Members
+      </button>
+    </div>
+        <div class="profile-info" style="flex-direction: column;">
+          <h2>Group Members</h2>
+          <div class="scrollable-list">
+            <ul>
+              <li *ngFor="let mem of conversation.members">
+                {{ mem.userName }}
+                <mat-icon class="edit-icon" (click)="removeMember(mem._id)">remove_circle</mat-icon>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #userlist let-quest>
+  <app-user-list  ></app-user-list>
+</ng-template>

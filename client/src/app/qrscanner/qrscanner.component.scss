@@ -1,0 +1,60 @@
+// Styling the button container
+body{
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px; // Adjust margin as needed
+}
+.demoqr{
+  width: 500px;
+  margin: 30px auto;
+  
+}
+// Styling the button
+button {
+  background-color: #ff4081; // Set the button color to #ff4081
+  color: white; // Set the button text color to white
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+
+  img {
+    width: 30px;
+  }
+
+  &:hover {
+    background-color: #e04076; // Change color on hover
+  }
+}
+
+// Styling the select input
+select {
+  padding: 5px;
+}
+
+// Styling the file input buttons
+input[type="file"] {
+  display: none;
+}
+
+label.btn-success {
+  background-color: #ff4081;
+  color: white;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}

@@ -1,0 +1,44 @@
+<div class="backdrop">
+  <div class="scrollable-container">
+    <h2>Add Users</h2>
+
+    <button   class="fab-button circular-button " (click)="closeModal();backClicked.emit('back')">
+      <ion-icon style="font-size: 25px;" name="close-circle-outline"></ion-icon>
+    </button>
+    <div class="scrollable-list">
+      <div class="input-container">
+        <input
+          placeholder="Group Name"
+          [(ngModel)]="grpName"
+          class="capsule-input"
+          [ngClass]="{ 'error-input': !grpNameValid }"
+        />
+        <div class="error-message" *ngIf="!grpNameValid">Please enter a group name.</div>
+      </div>
+      <div class="input-container">
+        <input
+          placeholder="Group Description"
+          [(ngModel)]="grpDesc"
+          class="capsule-input"
+        />
+      </div>
+      <ng-multiselect-dropdown
+        [placeholder]="'Select Users'"
+        [settings]="dropdownSettings"
+        [data]="allUsers"
+        [(ngModel)]="selectedItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+      >
+      </ng-multiselect-dropdown>
+      <div class="error-message" *ngIf="!selectedItemsValid">Please select at least one user.</div>
+      <button
+        class="capsule-button"
+        [class.disabled]="!grpNameValid || !selectedItemsValid"
+        (click)="createGrp()"
+      >
+        CREATE GROUP
+      </button>
+    </div>
+  </div>
+</div>

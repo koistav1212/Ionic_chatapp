@@ -1,0 +1,146 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensure the modal is above other content */
+}
+.add-users-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #ff4081; /* Background color for the header */
+  border-radius: 50px; /* Capsule design with 50% radius */
+
+  .add-icon {
+    color: white; /* Icon color */
+    margin-right: 10px; /* Spacing between icon and text */
+  }
+
+  h2 {
+    color: white; /* Text color */
+    font-size: 20px; /* Adjust the font size as needed */
+    margin: 0; /* Remove default margin for <h2> */
+    line-height: 25px;
+  }
+}
+.scrollable-container {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    backdrop-filter: blur(15px); /* Glassmorphism effect */
+    box-shadow: 2px 0px 4px #ccc;
+   width: 25%;
+  max-height: 80vh; /* Limit the height for scrolling */
+  text-align: center;
+  position: absolute;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.profile-container {
+  margin-top: 20px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-picture img {
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  margin-top: 5px;
+  
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: space-around;
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 14px;
+    color: white;
+  }
+}
+
+.scrollable-list {
+  margin-top: 10px;
+  height: 150px; overflow-y: scroll; 
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mat-icon {
+        cursor: pointer;
+        font-size: 24px;
+        color: #ff4081; /* Red color, change as needed */
+      }
+    }
+  }
+}
+
+ng-multiselect-dropdown{
+  color: black !important;
+flex-grow: 1;
+}
+.capsule-button{
+  padding: 5px 8px;
+}
+::ng-deep .multiselect-dropdown {
+  height: 200px; /* Adjust the height to your preference */
+  overflow-y: auto; /* Add scroll if content exceeds the height */
+}
+@media (max-width: 800px) {
+
+  .scrollable-container{
+    width: 60%;
+  }
+}
+@media (max-width: 600px) {
+  .scrollable-list {
+    height: 100px;
+  }
+  .scrollable-container{
+    width: 60%;
+  }
+}
+@media (max-width: 420px) {
+
+  .scrollable-container{
+    width: 70%;
+  }
+}
+.capsule-button{
+  height: 40px;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.circular-button{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}

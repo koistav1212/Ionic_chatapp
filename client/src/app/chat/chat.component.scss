@@ -1,0 +1,176 @@
+#container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #e7dfdc;
+  flex-direction: column;
+
+
+  #header {
+    min-height: 67px;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    backdrop-filter: blur(15px); /* Glassmorphism effect */
+    box-shadow: 2px 0px 4px #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Needed for positioning the user icon */
+
+    .avatarSection {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      left: 50px; /* Needed for positioning the user icon */
+
+      .picture {
+        min-width: 40px;
+        max-width: 40px;
+        width: 40px; /* Make the user icon round */
+        height: 40px; /* Make the user icon round */
+        border-radius: 50%; /* Make the user icon round */
+        overflow: hidden;
+        margin: 0 10px;
+
+        img {
+          max-width: 100%;
+        }
+      }
+
+      .nameSection {
+        flex-grow: 1;
+        color: #545454;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .actionButtons {
+      min-width: 50px;
+      display: flex;
+
+      img {
+        width: 20px;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  .circular-icon {
+    background-color: #ff4081 !important;
+    color: white;
+    border-radius: 50%;
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: auto;
+  }
+  
+  .circular-icon::before {
+    content: "\f061"; /* Unicode for the right arrow icon */
+    font-family: 'Material Icons';
+    font-size: 30px; /* Adjust the size as needed */
+    line-height: 1;
+  }
+  
+  #body {
+    flex-grow: 1;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    padding: 20px 50px;
+    overflow: scroll;
+    background: url('../../assets/background/chat_back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    
+
+    .message {
+      margin-top: 10px;
+      display: flex;
+      align-items: flex-start;
+      color: #767676;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.2); /* Glass effect background */
+      border-radius: 10px;
+      padding: 10px;
+
+      .messageContent {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        
+
+        .time {
+          text-align: right;
+          color: #959698;
+          font-size: 13px;
+          margin-top: 5px;
+        }
+      }
+
+      &.me {
+        align-items: flex-end;
+
+        .messageContent {
+          background-color: #dcf7c5;
+        }
+      }
+    }
+  }
+
+  #footer {
+    min-height: 67px;
+    background-color: #f0eeed;
+    display: flex;
+
+    #smileyIcon {
+      flex-basis: 50px;
+    }
+
+    #textarea {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+
+      textarea {
+        width: 100%;
+        height: 45px;
+        border: 0px;
+        border-radius: 4px;
+        resize: none;
+        outline: none;
+        padding: 14px;
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+    }
+
+    #micIcon {
+      flex-basis: 50px;
+    }
+
+    #micIcon,
+    #smileyIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-width: 40%;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  #body {
+    padding: 10px 20px !important;}
+
+}

@@ -1,0 +1,79 @@
+<div id="container">
+  <div id="header">
+    <button   class=" circular-button "  (click)="backClicked.emit('back')" >
+     
+      <ion-icon style="font-size: 25px;" name="chevron-back-circle-outline"></ion-icon>
+    </button>
+    <div class="avatarSection" (click)="openModal(userinfo)">
+      <div class="picture" *ngIf="conversation.grpName == null">
+        <img *ngIf="conversation.members.reciverId == currUser._id" [src]="getUserProfilePic(conversation.members.senderId)">
+        <img *ngIf="conversation.members.senderId == currUser._id" [src]="getUserProfilePic(conversation.members.reciverId)">
+         </div>
+
+      <div class="nameSection" *ngIf="conversation.members.reciverId == currUser._id">{{getUserName(conversation.members.senderId)}}</div>
+      <div  class="nameSection"  *ngIf="conversation.members.senderId == currUser._id">{{getUserName(conversation.members.reciverId)}}</div>
+    
+    </div>
+    <div class="avatarSection" (click)="openModal(groupinfo)">
+      <div class="picture" *ngIf="conversation.grpName!=null">
+        <img src="{{conversation.grpPic|| '../../../../assets/background/grp_pic.png'}}" />
+      </div>
+
+      <div class="nameSection" *ngIf="conversation.grpName!=null">{{conversation.grpName}}</div>
+    </div>
+    <div class="actionButtons">
+      <img src="../../assets/images/attached.svg" />
+      <img src="../../assets/images/moreVertIcon.svg" />
+    </div>
+  </div>
+  <div id="body">
+    <div
+      class="message"
+      [ngClass]="{ me: message.senderId==currUser._id }"
+      *ngFor="let message of messageList"
+    >
+    <div *ngIf="message.senderId !== currUser._id && conversation.grpName">
+      <div class="userName">{{ message.senderName }}</div>
+    </div>
+      <div class="messageContent">
+        {{ message.text }}
+        <div class="time">{{ formatTimestamp(message.timestamps) }}</div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div id="smileyIcon">
+      <img
+        (click)="emojiPickerVisible = !emojiPickerVisible"
+        src="../../assets/images/smileIcon.svg"
+      />
+      <emoji-mart
+        (emojiClick)="emojiClicked($event)"
+        *ngIf="emojiPickerVisible"
+        style="position: absolute; bottom: 50px"
+        [darkMode]="false"
+        title="Pick your emoji…"
+        emoji="point_up"
+      ></emoji-mart>
+    </div>
+    <div id="textarea">
+      <textarea id="testMsg" style="background-color: white; color: black;"
+        [(ngModel)]="message"
+        (keyup.enter)="submitMessage($event)"
+      ></textarea>
+    </div>
+    <div id="micIcon">
+      <img src="../../assets/images/voiceIcon.svg" />
+    </div>
+   
+
+  </div>
+</div>
+<!-- Giving userId for chat based on -->
+<ng-template #userinfo let-quest>
+  <app-user-info [userId]="conversation.members.reciverId==currUser._id ?conversation.members.senderId:conversation.members.reciverId" *ngIf="conversation.grpName==null"  ></app-user-info>
+</ng-template>
+
+<ng-template #groupinfo let-quest>
+  <app-group-info [grpid]="conversation._id" *ngIf="conversation.grpName!=null"   ></app-group-info>
+</ng-template>

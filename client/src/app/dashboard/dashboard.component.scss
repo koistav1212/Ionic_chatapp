@@ -1,0 +1,140 @@
+#background_header {
+  width: 100%;
+  height: 20vh;
+  background-color: #019688;
+}
+
+#background_body {
+  height: 80vh;
+  background: #e0e0e0;
+}
+
+::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+  color: #f44336 !important;
+}
+::ng-deep .mat-mdc-tab .mdc-tab-indicator__content--underline{
+  border-color: #f44336 !important;
+}
+::ng-deep .mdc-tab-indicator {
+  display: none !important;}
+
+  
+.circular-button {
+  width: 40px !important; /* Adjust the width and height to your desired size */
+  height: 40px !important;
+  border-radius: 50% !important; /* Makes the button circular */
+  background-color: #ff4081 !important; /* Use your desired background color */
+  color: white !important; /* Text color */
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer !important;
+  
+  border: none; /* Remove the border for a clean look */
+  outline: none; /* Remove the default focus outline */
+}
+
+#chatContainer {
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  right: 0px;
+  left: 0px;
+  box-shadow: -1px 1px 5px rgba(#333, 0.2);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+justify-content: flex-start;
+align-items: stretch;
+  app-sidebar {
+    display: block;
+    height: 100%;
+    border-right: 1px solid #e8e8e8;
+  }
+.head1{
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.head2{
+  display: block;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+  #chat {
+    background-color: #f7f9fa;
+    flex-grow: 1;
+
+    #chatPlaceholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      
+      margin: auto;
+      flex-direction: column;
+background-color: white;
+      h2 {
+        font-size: 35px;
+        font-weight: normal;
+        color: #555555;
+      }
+      .seperator {
+        width: 50%;
+        border-top: 1px solid #eaeaea;
+        margin: 30px 0px;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+.sidebar-container {
+  flex: 1;
+  position: relative;
+}
+
+.fab-button {
+position: absolute;
+bottom: 20px; /* Adjust the bottom position as needed */
+right: 20px; 
+z-index: 12;
+/* Adjust the right position as needed */
+}
+
+#chatPlaceholder img{
+  width: 400px;
+}
+
+@media (max-width: 1600px) {
+.head1{display: none !important;}.head2{display: none !important;}
+}
+@media (max-width: 800px) {
+#chatPlaceholder{
+  display: none !important;
+}
+  #chatPlaceholder img{
+    width: 250px;
+  }
+  #chatContainer {
+    flex-direction: column;
+  }
+  app-sidebar{
+    height: 100vh;
+  }
+  mat-tab-group{
+    height: 100vh !important;
+    overflow-y: hidden;
+  }
+  
+
+}

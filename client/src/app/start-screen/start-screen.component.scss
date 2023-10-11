@@ -1,0 +1,56 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    margin: auto;
+    color: black;
+}
+
+.mainImg{
+    width: 80%;
+    margin: auto;
+    height: 65vh;
+    margin-top: 50px !important;
+}
+mat-tab-group{
+    width: 600px;
+    margin: auto;
+}
+@media (max-width: 1000px) {
+.container{
+    flex-direction: column;
+}
+
+.mainImg{
+    height: 45vh !important;
+  
+}
+.feature-description img{
+    width: 7vw;
+}
+.right {
+    width: 90%;
+    margin: auto;
+}
+.left{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+}
+::ng-deep .mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{
+    color: black;
+}
+@media (max-width: 600px) {
+    
+.mainImg{
+    margin-top: 75px !important;
+    height: 65vh;
+}
+
+}
+
+.feature-description img{
+    width: 15vw;
+}

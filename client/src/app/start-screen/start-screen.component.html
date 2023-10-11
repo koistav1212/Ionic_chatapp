@@ -1,0 +1,103 @@
+<ion-content>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+           font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.65); /* Background with transparency */
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: white;">
+    <div class="container">
+    <div class="left">
+        <img class="mainImg" src="../../assets/background/chating.png" />
+        <h1>Welcome to Our Chat App</h1>
+        <p>Connect, chat, and stay in touch with your friends and colleagues.</p>
+        <a  routerLink="../login" class="cta-button">Get Started</a>
+    </div>
+    <div class="right" >
+        <mat-tab-group  color="warn" >
+            <mat-tab label="Real-Time">
+              <div class="feature-description">
+                <h2>Real-Time Chat</h2>
+                <img src="https://static-00.iconduck.com/assets.00/socket-io-icon-512x512-8untkuqg.png"/>
+                <p>Enjoy real-time communication with your friends and contacts. Send and receive messages instantly.</p>
+              </div>
+            </mat-tab>
+            <mat-tab label="Group Chat">
+              <div class="feature-description">
+                <h2>Group Chat</h2>
+                <img src="https://static.vecteezy.com/system/resources/previews/020/575/803/original/3d-illustration-group-users-with-bubble-chat-png.png" />
+               
+                <p>Create or join groups to chat with multiple friends at once. Collaborate and share in group conversations.</p>
+              </div>
+            </mat-tab>
+            <mat-tab label="Cross Platform">
+              <div class="feature-description">
+                <h2>Cross Platform</h2>
+                <img src="https://cdn-icons-png.flaticon.com/512/10435/10435182.png">
+                 <p>Get your chats in all your devices. As it supports cross platform messaging.</p>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+          
+    </div>
+    </div>
+</body>
+
+</ion-content>

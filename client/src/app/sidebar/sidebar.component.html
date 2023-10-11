@@ -1,0 +1,125 @@
+<div id="sidebar">
+  <div id="row1">
+    <mat-tab-group [@.disabled]="true" [color]="'#f44336'">
+      <mat-tab label="Messages">
+        <div id="searchBox">
+          <img width="19" src="../../assets/images/searchIcon.svg" />
+          <input [(ngModel)]="searchText" type="text" placeholder="Search or start the new chat" />
+        </div>
+        <div id="sidebarContent">
+          <!-- <div id="noConversations">All chats are archived</div> -->
+
+          <div class="conversation" *ngFor="let conversation of !searchText ? conversations : filteredConversations"
+            (click)="conversationClicked.emit(conversation)">
+            <div class="picture" *ngIf="conversation.grpName == null">
+              <img *ngIf="conversation.members.reciverId == currUser._id"
+                [src]="getUserProfilePic(conversation.members.senderId)">
+              <img *ngIf="conversation.members.senderId == currUser._id"
+                [src]="getUserProfilePic(conversation.members.reciverId)">
+            </div>
+            <div class="content" *ngIf="conversation.grpName == null">
+              <div class="conversationHeader">
+                <div *ngIf="conversation.members.reciverId == currUser._id">
+                  {{getUserName(conversation.members.senderId)}}</div>
+                <div *ngIf="conversation.members.senderId == currUser._id">
+                  {{getUserName(conversation.members.reciverId)}}</div>
+                <div class="time">{{ formatTimestamp(conversation.message) }}</div>
+              </div>
+              <div class="message">
+                <img *ngIf="!conversation.latestMessageRead" src="../../assets/images/doubleTick.svg" />
+                <img *ngIf="conversation.latestMessageRead" src="../../assets/images/doubleTickBlue.svg" />
+                {{ getlastMsg(conversation.message) }}
+              </div>
+            </div>
+
+            <div class="picture" *ngIf="conversation.grpName != null">
+              <img src="{{ conversation.grpPic|| '../../../../assets/background/grp_pic.png' }}" />
+            </div>
+            <div class="content" *ngIf="conversation.grpName != null">
+              <div class="conversationHeader">
+                <div class="name">{{ conversation.grpName }}</div>
+                <div class="time">{{ formatTimestamp(conversation.message) }}</div>
+              </div>
+              <div class="message">
+                <img *ngIf="!conversation.latestMessageRead" src="../../assets/images/doubleTick.svg" />
+                <img *ngIf="conversation.latestMessageRead" src="../../assets/images/doubleTickBlue.svg" />
+                {{ getlastMsg(conversation.message) }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </mat-tab>
+      <mat-tab label="Available Users">
+        <div id="searchBox">
+          <img width="19" src="../../assets/images/searchIcon.svg" />
+          <input [(ngModel)]="searchText" type="text" placeholder="Search or start the new chat" />
+        </div>
+        <div id="sidebarContent">
+          <!-- <div id="noConversations">All chats are archived</div> -->
+
+          <div class="conversation" *ngFor="let user of !searchText ? allUsers : filteredConversations">
+            <div class="picture" *ngIf="!currUser.connections.includes(user._id)">
+              <img [src]="getUserProfilePic(user._id) || '../../assets/images/noPic.svg'" />
+            </div>
+            <div class="content" *ngIf="!currUser.connections.includes(user._id)">
+              <div class="conversationHeader">
+                <div class="name">{{ user.userName }}</div>
+                <button class="circular-button" (click)="connect(user._id,user.userName,user.userName)">
+                  <ion-icon style="    font-size: 25px;" name="add-circle-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="My Profile">
+
+        <div class="profile-container">
+          <div class="profile-card">
+            <div class="profile-picture">
+              <input type="file" (change)="onSelectFile($event)" class="file-input" #fileInput style="display: none;" />
+              <img [src]="imgUrl" alt="Profile Picture" (click)="fileInput.click()" />
+              <button style="position: absolute;      right: 10px;" class="circular-button" (click)="fileInput.click()">
+                <ion-icon style="    font-size: 25px;" name="cloud-upload-outline"></ion-icon>
+              </button>
+            </div>
+            <div class="profile-info">
+              <h2>Name</h2>
+              <textarea [(ngModel)]="params.userName"></textarea>
+
+            </div>
+            <div class="profile-info">
+              <h2>About Me</h2>
+              <textarea [(ngModel)]="params.about"></textarea>
+
+            </div>
+            <div class="profile-info">
+              <h2>Created At</h2>
+              <p>{{ params.createdAt | date: 'medium' }}</p>
+            </div>
+            <div class="profile-info">
+              <h2>My Groups</h2>
+              <div class="scrollable-list">
+                <ul>
+                  <li *ngFor="let group of currUser.rooms">{{ getGroupbyID(group) }}</li>
+                </ul>
+              </div>
+            </div>
+            <button class="capsule-button" (click)="submitStudent()">Save Changes</button>
+          </div>
+        </div>
+
+
+        <div style="width: 90%; text-align: center; margin: 20px auto;">
+          <h2>Scan through your mobile App for login</h2>
+          <qrcode style="margin: auto;" [qrdata]="currUser._id" [width]="250" [errorCorrectionLevel]="'M'"></qrcode>
+        </div>
+
+      </mat-tab>
+    </mat-tab-group>
+
+
+  </div>
+
+</div>

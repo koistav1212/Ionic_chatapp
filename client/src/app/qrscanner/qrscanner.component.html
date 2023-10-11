@@ -1,0 +1,32 @@
+
+<body>
+<div class="container">
+  <h1>Scan your QR CODE to Login</h1>
+
+  <!-- devices -->
+  
+
+  <!-- ngx-scanner-qrcode -->
+  <div style="width: 350px;  margin: auto;">
+  <ngx-scanner-qrcode    #action="scanner" [config]="config" (event)="onEvent($event, action)"></ngx-scanner-qrcode>
+</div>
+  <!-- data -->
+  <!-- <p class="data">{{ (action.data | async | json) }}</p> -->
+
+  <!-- loading -->
+  <p *ngIf="action.isLoading">⌛ Loading...</p>
+
+  <!-- Centered buttons -->
+  <div class="button-container">
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
+      <img [src]="action.isStart ? 'https://id1945.github.io/images/svg/camera-off.svg' : 'https://id1945.github.io/images/svg/camera-on.svg'" width="30px" />
+    </button>
+
+    <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="!action.isStart" (click)="handle(action, action.isPause ? 'play' : 'pause')">
+      <img [src]="action.isPause ? 'https://id1945.github.io/images/svg/play.svg' : 'https://id1945.github.io/images/svg/pause.svg'" width="30px" />
+    </button>
+
+    </div>
+    <img class="demoqr" src="../../assets/background/qrcode.jpg"/>
+</div>
+</body>

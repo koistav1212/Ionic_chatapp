@@ -1,0 +1,123 @@
+<body>
+    <div class="blurBody">
+
+        <div style="display: flex;flex-direction: column;margin: auto;">
+<mat-tab-group [@.disabled]="true" color="warn" >
+    <mat-tab  label="Login">
+  
+<form [formGroup]="userRegistrationForm" class="formclass">
+
+    <h2> Login to stay Connected! </h2>
+    <div class="field-input form-floating mb-3" [ngClass]="{'input-entered': email}">
+        <label class="textLabel" for="floatingInput ">Email address</label>
+        <input type="email" [(ngModel)]="email" class="form-control" id="floatingInput"
+            placeholder="name@example.com"
+            [class.is-invalid]="userRegistrationForm.get('email').invalid && userRegistrationForm.get('email').touched"
+            class="form-control" formControlName="email" [email]="emailValidation" />
+
+        <div class="color"
+            *ngIf="(userRegistrationForm.get('email').invalid && userRegistrationForm.get('email').touched) || userRegistrationForm.get('email').dirty">
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('email').errors?.required">Email address is
+                required</small>
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('email').errors?.email">Invalid email
+                address</small>
+        </div>
+        
+    </div>
+    <div class="field-input form-floating mb-3" [ngClass]="{'input-entered': password}">
+        <label class="textLabel" for="floatingInput "> password</label>
+        <input type="password" [(ngModel)]="password" class="form-control" id="floatingInput"
+            placeholder="********"
+            [class.is-invalid]="userRegistrationForm.get('password').invalid && userRegistrationForm.get('password').touched"
+            class="form-control" formControlName="password" />
+
+        <div class="color"
+            *ngIf="(userRegistrationForm.get('password').invalid && userRegistrationForm.get('password').touched) || userRegistrationForm.get('password').dirty">
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('password').errors?.required"> password is
+                required</small>
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('password').errors?.password">Invalid password</small>
+        </div>
+        
+    </div>
+</form>
+<div class="d-grid">
+    <button  (click)="login()"
+    class="capsule-button" type="button"
+        id="next">
+        Login
+    </button>
+</div>
+</mat-tab>
+<mat-tab  label="Signup">
+      
+<form [formGroup]="userRegistrationForm" class="formclass">
+    <h2>Let's get you started!</h2>
+    <div class="field-input form-floating mb-3" [ngClass]="{'input-entered': userName}">
+        <label class="textLabel" for="floatingInput ">User Name</label>
+        <input type="text" [(ngModel)]="userName" class="form-control" id="floatingInput"
+            placeholder="User Name"
+            [class.is-invalid]="userRegistrationForm.get('userName').invalid && userRegistrationForm.get('userName').touched"
+            class="form-control" formControlName="userName"  />
+
+        <div class="color"
+            *ngIf="(userRegistrationForm.get('userName').invalid && userRegistrationForm.get('userName').touched) || userRegistrationForm.get('userName').dirty">
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('userName').errors?.required">User Name is
+                required</small>
+        </div>
+        
+    </div>
+    <div class="field-input form-floating mb-3" [ngClass]="{'input-entered': email}">
+        <label class="textLabel" for="floatingInput ">Email address</label>
+        <input type="email" [(ngModel)]="email" class="form-control" id="floatingInput"
+            placeholder="name@example.com"
+            [class.is-invalid]="userRegistrationForm.get('email').invalid && userRegistrationForm.get('email').touched"
+            class="form-control" formControlName="email" [email]="emailValidation" /> 
+
+        <div class="color"
+            *ngIf="(userRegistrationForm.get('email').invalid && userRegistrationForm.get('email').touched) || userRegistrationForm.get('email').dirty">
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('email').errors?.required">Email address is
+                required</small>
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('email').errors?.email">Invalid email
+                address</small>
+        </div>
+       
+    </div>
+    <div class="field-input form-floating mb-3" [ngClass]="{'input-entered': password}">
+        <label class="textLabel" for="floatingInput "> password</label>
+        <input type="password" [(ngModel)]="password" class="form-control" id="floatingInput"
+            placeholder="********"
+            [class.is-invalid]="userRegistrationForm.get('password').invalid && userRegistrationForm.get('password').touched"
+            class="form-control" formControlName="password" />
+
+        <div class="color"
+            *ngIf="(userRegistrationForm.get('password').invalid && userRegistrationForm.get('password').touched) || userRegistrationForm.get('password').dirty">
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('password').errors?.required"> password is
+                required</small>
+            <small class="text-danger"
+                *ngIf="userRegistrationForm.get('password').errors?.password">Invalid password</small>
+        </div>
+        
+    </div>
+</form>
+<div class="d-grid">
+    <button  (click)="signup()" 
+        class="capsule-button" type="button"
+        id="next">
+        Signup
+    </button>
+    </div>
+</mat-tab>
+</mat-tab-group>
+
+<h2 routerLink="../qrscanner"> Scan QR to Login </h2>
+</div>
+</div>
+</body>

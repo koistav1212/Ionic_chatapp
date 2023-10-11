@@ -1,0 +1,74 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+ .after-submit-popup{
+    .modal-dialog {
+        width: 40%;
+margin: 30px 20%;
+position: absolute;
+background-color: white;
+    }
+}
+
+.circular-button {
+  width: 40px !important; /* Adjust the width and height to your desired size */
+  height: 40px !important;
+  border-radius: 50% !important; /* Makes the button circular */
+  background-color: #ff4081 !important; /* Use your desired background color */
+  color: white !important; /* Text color */
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer !important;
+  
+  border: none; /* Remove the border for a clean look */
+  outline: none; /* Remove the default focus outline */
+}
+
+.capsule-button {
+    background-color: #ff4081; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 20px; /* Adjust the border radius as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  ::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+    color: #f44336 !important;
+  }
+  ::ng-deep .mat-mdc-tab .mdc-tab-indicator__content--underline{
+    border-color: #f44336 !important;
+  }
+  ::ng-deep .mdc-tab-indicator {
+    display: none !important;}
+  .capsule-button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
