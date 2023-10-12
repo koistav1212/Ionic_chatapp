@@ -115,8 +115,10 @@ z-index: 12;
   width: 400px;
 }
 
-@media (max-width: 1600px) {
-.head1{display: none !important;}.head2{display: none !important;}
+@media (max-width: 1500px) {
+.head1{display: none !important;}
+
+.head2{display: none !important;}
 }
 @media (max-width: 800px) {
 #chatPlaceholder{

@@ -84,7 +84,7 @@
     flex-direction: column;
     flex-direction: column-reverse;
     padding: 20px 50px;
-    overflow: scroll;
+    overflow-y: scroll;
     background: url('../../assets/background/chat_back.jpg') no-repeat center center fixed;
     background-size: cover;
     
@@ -93,21 +93,21 @@
       margin-top: 10px;
       display: flex;
       align-items: flex-start;
-      color: #767676;
+      color: white;
       flex-direction: column;
       background: rgba(255, 255, 255, 0.2); /* Glass effect background */
       border-radius: 10px;
       padding: 10px;
 
       .messageContent {
-        background-color: #fff;
+        background-color: #FF0099;
         border-radius: 5px;
         padding: 10px;
         
 
         .time {
           text-align: right;
-          color: #959698;
+          color: white;
           font-size: 13px;
           margin-top: 5px;
         }
