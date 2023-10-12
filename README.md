@@ -3,13 +3,10 @@
 
 ## Screenshots
 
-### WebApp
-
-![WebApp Screenshot](Screenshot1.png)
-
-### Android App
-
-![Android App Screenshot](mobile_start.jpg)
+<div style="display: flex;">
+  <img src="Screenshot1.png" alt="Screenshot 1" width="45%">
+  <img src="mobile_start.jpg" alt="Mobile Start" width="45%">
+</div>
 
 
 # Ionic Chatapp
