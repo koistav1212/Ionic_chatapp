@@ -1,8 +1,15 @@
 #### WebApp is live at https://angular-chatapp.onrender.com/
 #### Get the Android App -- https://drive.google.com/file/d/17hCwgFCNwcEgCCu80wn3J2Xz0vkfaRSS/view?usp=sharing
 
-![Screenshot 1](./Screenshot%202023-10-12%20132441.png)
-![Screenshot 2](./mobile_start.jpg)
+## Screenshots
+
+### WebApp
+
+![WebApp Screenshot](Screenshot%202023-10-12%20132441.png){ height=500 }
+
+### Android App
+
+![Android App Screenshot](mobile_start.jpg){ height=500 }
 
 # Ionic Chatapp
 
