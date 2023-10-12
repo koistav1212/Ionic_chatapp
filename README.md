@@ -3,9 +3,9 @@
 
 ## Screenshots
 
-<div style="display: flex;">
-  <img src="Screenshot1.png" alt="Screenshot 1" width="70%">
-  <img src="mobile_start.jpg" alt="Mobile Start" width="25%">
+<div style="display: flex; align-items:center;">
+  <img src="Screenshot1.png" alt="Screenshot 1" width="75%">
+  <img src="mobile_start.jpg" alt="Mobile Start" width="20%">
 </div>
 
 
