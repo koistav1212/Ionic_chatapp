@@ -5,10 +5,11 @@
 
 ### WebApp
 
-![WebApp Screenshot](https://raw.githubusercontent.com/koistav1212/Ionic_chatapp/main/Screenshot%202023-10-12%20132441.png =500x)
+![WebApp Screenshot](Screenshot1.png)
 
 ### Android App
-![Android App Screenshot](https://raw.githubusercontent.com/koistav1212/Ionic_chatapp/main/mobile_start.jpg =500x)
+
+![Android App Screenshot](mobile_start.jpg)
 
 
 # Ionic Chatapp
