@@ -12,7 +12,7 @@ Welcome to Ionic Chatapp! This hybrid mobile application is designed for Android
 
 - 🌐 **Real-time Chatting**: Engage in real-time conversations with other users, powered by Socket.io for a dynamic chat experience.
 
-- 🌍 **Hosting Platform**: The application is hosted on a Render to make it accessible to users worldwide.
+- 🌍 **Hosting Platform**: The application is hosted on Render to make it accessible to users worldwide.
 
 ## Technologies Used
 
