@@ -4,8 +4,8 @@
 ## Screenshots
 
 <div style="display: flex;">
-  <img src="Screenshot1.png" alt="Screenshot 1" width="45%">
-  <img src="mobile_start.jpg" alt="Mobile Start" width="45%">
+  <img src="Screenshot1.png" alt="Screenshot 1" width="85%">
+  <img src="mobile_start.jpg" alt="Mobile Start" width="10%">
 </div>
 
 
