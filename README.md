@@ -1,5 +1,14 @@
 #### WebApp is live at https://angular-chatapp.onrender.com/
-#### Get the Android App -- https://drive.google.com/file/d/15EHyZBGXRhIZ2foEq4V1pfVl_6LsP9TG/view?usp=sharing
+#### Get the Android App -- https://drive.google.com/file/d/17hCwgFCNwcEgCCu80wn3J2Xz0vkfaRSS/view?usp=sharing
+
+## Screenshots
+
+<div style="display: flex; align-items:center;">
+  <img src="Screenshot1.png" alt="Screenshot 1" width="75%">
+  <img src="mobile_start.jpg" alt="Mobile Start" width="20%">
+</div>
+
+
 # Ionic Chatapp
 
 Welcome to Ionic Chatapp! This hybrid mobile application is designed for Android and web platforms, offering a range of exciting features:
