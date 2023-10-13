@@ -87,7 +87,7 @@ this.imgUrl='https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-forei
     this.services.getAllConversation(this.currUser).subscribe((res:any)=>{
       
       if(res)
-      this.conversations=res
+      this.conversations = [...this.conversations, ...res];
     })  
   }
   getAllGroups()
